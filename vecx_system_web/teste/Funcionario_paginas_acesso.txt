@@ -1,0 +1,31 @@
+vecx_system_web
+1-Gerente
+--- formulario-cliente, formulario-empresa, formulario-funcionario, formulario-produto
+--- formulario-altera-cliente, formulario-altera-empresa, formulario-altera-funcionario, formulario-altera-produto
+--- cliente-lista, empresa-lista, funcionario-lista, produto-lista
+--- ficha-cliente, ficha-empresa, ficha-funcionario, ficha-produto
+--- ferramentas
+--- sobre
+2-Administrador
+--- formulario-cliente, formulario-empresa, formulario-funcionario, formulario-produto
+--- formulario-altera-cliente, formulario-altera-empresa, formulario-altera-funcionario, formulario-altera-produto
+--- cliente-lista, empresa-lista, funcionario-lista, produto-lista
+--- ficha-cliente, ficha-empresa, ficha-funcionario, ficha-produto
+--- ferramentas
+--- sobre
+3-Atendente
+--- formulario-cliente, formulario-produto
+--- formulario-altera-cliente, formulario-altera-produto
+--- cliente-lista, produto-lista
+--- ficha-cliente, ficha-produto
+--- sobre
+4-Estoque
+--- formulario-produto
+--- formulario-altera-produto
+--- produto-lista
+--- ficha-produto
+--- sobre
+5-Carregador
+--- cliente-lista, produto-lista
+--- ficha-cliente, ficha-produto
+--- sobre

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Testa Index</title>
+    </head>
+    <body>
+        <div>
+            <h1>Testa Index</h1>
+            <input type="text" name="texto_campo" id="campo_texto" pattern="[0-9]{3}-[A-Za-z]{3}.([0-9])/[0-9]">
+            <p id="mensagem"></p>
+            <button id="b_validar">Validar</button>
+            <script>
+                let texto_campo = document.getElementById("campo_texto");
+                let texto_campo_valor = texto_campo.value;
+                // texto_campo_valor = texto_campo_valor.replace(/[\.\-\(\)\/]/, "");
+                // 999-Aab.(1)/2
+                texto_campo_valor = texto_campo_valor.replace(".", "");
+                texto_campo_valor = texto_campo_valor.replace("-", "");
+                texto_campo_valor = texto_campo_valor.replace("(", "");
+                texto_campo_valor = texto_campo_valor.replace(")", "");
+                texto_campo_valor = texto_campo_valor.replace("/", "");
+                let b_validar = document.getElementById("b_validar");
+                let mensagem = document.getElementById("mensagem");
+                b_validar.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    if (texto_campo_valor.length <= 0) {
+                        // mensagem.value = "Campo vazio";
+                        mensagem.textContent = "Campo vazio";
+                        texto_campo_valor = "";
+                        console.log(texto_campo_valor);
+                    } else {
+                        // mensagem.value = texto_campo_valor;
+                        mensagem.textContent = "Campo não vazio";
+                        // mensagem.textContent = texto_campo_valor;
+                        console.log(texto_campo_valor);
+                    }
+                });
+            </script>
+        </div>
+    </body>
+</html>

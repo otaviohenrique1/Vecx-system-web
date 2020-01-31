@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Teste Pagina</title>
+    </head>
+    <body>
+        <!-- <input type="radio" name="teste_radio" id="radio_1" value="1" checked> 1
+        <br>
+        <input type="radio" name="teste_radio" id="radio_2" value="2"> 2 -->
+        <script>
+            function mascaraDeTelefone(telefone){
+                const textoAtual = telefone.value;
+                const isCelular = textoAtual.length === 9;
+                let textoAjustado;
+                if(isCelular) {
+                    const parte1 = textoAtual.slice(0,5);
+                    const parte2 = textoAtual.slice(5,9);
+                    textoAjustado = `${parte1}-${parte2}`        
+                } else {
+                    const parte1 = textoAtual.slice(0,4);
+                    const parte2 = textoAtual.slice(4,8);
+                    textoAjustado = `${parte1}-${parte2}`
+                }
+                telefone.value = textoAjustado;
+            }
+
+            function tiraHifen(telefone) {
+                const textoAtual = telefone.value;
+                const textoAjustado = textoAtual.replace(/\-/g, '');
+                telefone.value = textoAjustado;
+            }
+
+            function mascaraDeTelefone2(telefone){
+                const textoAtual = telefone.value;
+                const isCelular = textoAtual.length === 9;
+                let textoAjustado;
+                if(isCelular) {
+                    textoAjustado = textoAtual.replace(/(\d{5})(\d{4})/,
+                                    function( regex, arg1, arg2) {
+                                    return arg1 + '-' + arg2 ;
+                                    });
+                    telefone.value = textoAjustado;
+                }
+            }
+
+            // let textoAjustado;
+            // if(isCelular) {
+            //     textoAjustado = textoAtual.replace(/(\d{5})(\d{4})/,
+            //                     function( regex, arg1, arg2) {
+            //                     return arg1 + '-' + arg2 ;
+            //                     });
+            //     telefone.value = textoAjustado;
+            // }
+        </script>
+        <div>
+            <input type="text" onblur="mascaraDeTelefone(this)" placeholder="9999-9999 ou 9999-99999"/>
+        </div>
+        <div>
+            <input type="text" onblur="mascaraDeTelefone(this)" placeholder="9999-9999 ou 9999-99999" onfocus="tiraHifen(this)" />
+        </div>
+        <div>
+            <input type="text" onblur="mascaraDeTelefone2(this)" placeholder="9999-9999 ou 9999-99999" onfocus="tiraHifen(this)" />
+        </div>
+    </body>
+</html>
